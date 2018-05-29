@@ -1,7 +1,11 @@
 language: c
 services:
     - docker
-os:linux-ppc64le
+os:
+  - linux-ppc64le
+
+sudo: false
+
 env:
     matrix:
         - ITEST_TARGET=itest_trusty
