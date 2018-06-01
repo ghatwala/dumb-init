@@ -26,8 +26,9 @@ deploy:
   api_key: $GITHUB_API_KEY #"GITHUB OAUTH TOKEN"
   file: "dist/dumb-init_1.2.1_ppc64el.deb"
   skip_cleanup: true
-  on:
-    tags: true
+  overwrite: true  
+ # on:
+ #   tags: true
 
 script:
    - make "$ITEST_TARGET"
