@@ -15,6 +15,12 @@ env:
         #- ITEST_TARGET=itest_stretch
         #- ITEST_TARGET=itest_tox
 
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name $GITHUB_USER_NAME #"YOUR GIT USER NAME"
+      - git config --local user.email $GITHUB_USER_EMAIL #"YOUR GIT USER EMAIL"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+      
 deploy:
   provider: releases
   api_key: $GITHUB_API_KEY #"GITHUB OAUTH TOKEN"
